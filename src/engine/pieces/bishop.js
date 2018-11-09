@@ -6,6 +6,8 @@ import Square from '../square';
 export default class Bishop extends Piece {
     constructor(player) {
         super(player);
+        // this.vectors = [(1, 1), (-1, 1)];
+        // this.oneMove = false;
     }
 
     getAvailableMoves(board) {

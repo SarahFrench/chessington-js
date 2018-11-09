@@ -24,8 +24,6 @@ export default class Rook extends Piece {
 
         //Remove currentSquare
         let filteredAvailableSquareList = availableSquareList.filter( square => { return !square.equals(currentSquare)})
-
-
         return filteredAvailableSquareList;
     }
 }
