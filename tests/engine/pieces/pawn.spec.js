@@ -14,13 +14,14 @@ describe('Pawn', () => {
         it('can move one square up', () => {
             const pawn = new Pawn(Player.WHITE);
             board.setPiece(Square.at(0, 0), pawn);
-
+            
             const moves = pawn.getAvailableMoves(board);
 
             moves.should.deep.include(Square.at(1, 0));
         });
 
     });
+
 
     describe('black pawns', () => {
 

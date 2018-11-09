@@ -7,7 +7,7 @@ export default class Pawn extends Piece {
         super(player);
     }
 
-    getAvailableMoves(board) {
+    getAvailableMoves(board) { //currently doesn't allow Pawn to move 2 squares on first move for that piece
       let currentSquare = board.findPiece(this);
       let availableSquare = currentSquare;
 
