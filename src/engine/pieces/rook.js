@@ -10,22 +10,22 @@ export default class Rook extends Piece {
 
     getAvailableMoves(board) {
         let currentSquare = board.findPiece(this);
-        let availableSquares = [];
+        let availableSquareList = [];
 
 
         //Horizontally (fixed col)
         for (let i = 0; i < 8; i++){
-          availableSquares.push(new Square(i,currentSquare.col))
+          availableSquareList.push(new Square(i,currentSquare.col))
         }
         //Vertically (fixed col)
         for (let i = 0; i < 8; i++){
-          availableSquares.push(new Square(currentSquare.row, i))
+          availableSquareList.push(new Square(currentSquare.row, i))
         }
 
         //Remove currentSquare
-        let filteredAvailableSquares = availableSquares.filter( square => { return ((square.col !== currentSquare.col) || (square.row !== currentSquare.row))})
+        let filteredAvailableSquareList = availableSquareList.filter( square => { return !square.equals(currentSquare)})
 
 
-        return filteredAvailableSquares;
+        return filteredAvailableSquareList;
     }
 }
