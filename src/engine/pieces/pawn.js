@@ -14,27 +14,23 @@ export default class Pawn extends Piece {
       let availableSquare = board.findPiece(this);
       let availableSquareList =[];
 
-      console.log(availableSquare);
-
-      //Previously moved
+      //1 available move to a previously moved Pawn
       if (this.player === Player.WHITE){
         availableSquare.row += 1;
         availableSquareList.push(new Square(availableSquare.row, availableSquare.col));
-        if (currentSquare.row === 1){
-          availableSquare.row += 1;
-          availableSquareList.push(new Square(availableSquare.row, availableSquare.col));
-        }
       } else if (this.player === Player.BLACK){
         availableSquare.row -= 1;
         availableSquareList.push(new Square(availableSquare.row, availableSquare.col));
-        if (currentSquare.row === 6){
-          availableSquare.row -= 1;
-          availableSquareList.push(new Square(availableSquare.row, availableSquare.col));
-        }
         }
 
-      //      if ((this.player === Player.WHITE) && (currentSquare.row === 1)){
-
+      //2 available moves to an unmoved Pawn
+      if ((this.player === Player.WHITE) && (currentSquare.row === 1)){
+        availableSquare.row += 1;
+        availableSquareList.push(new Square(availableSquare.row, availableSquare.col));
+      } else if ((this.player === Player.BLACK) && (currentSquare.row === 6)){
+        availableSquare.row -= 1;
+        availableSquareList.push(new Square(availableSquare.row, availableSquare.col));
+      }
 
       return availableSquareList;
 }
