@@ -32,10 +32,14 @@ export default class Pawn extends Piece {
         availableSquareList.push(new Square(availableSquare.row, availableSquare.col));
       }
 
+
+      availableSquareList.forEach( square => {
+        if(board.getPiece(square) !== undefined){
+          availableSquareList = availableSquareList.filter(availableSquare => { return !availableSquare.equals(square)})
+        };
+      });
+
+
       return availableSquareList;
-}
-
-
-
-
+    }
 }
